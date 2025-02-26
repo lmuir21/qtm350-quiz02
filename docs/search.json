@@ -4,7 +4,7 @@
     "href": "life-population.html",
     "title": "Life Expectancy and Population",
     "section": "",
-    "text": "This page contains analysis for the relationship between life expectancy and population over time.\n#| echo: true\nimport pandas as pd import matplotlib.pyplot as plt import seaborn as sns\n\nLoad the dataset\ngapminder = pd.read_csv(“gapminder.csv”)\n\n\nPlot the relationship between life expectancy and population over time\nplt.figure(figsize=(10, 6)) sns.scatterplot(data=gapminder, x=‘population_millions’, y=‘life_expectancy’, hue=‘year’, palette=‘viridis’, legend=‘full’) plt.xscale(‘log’) plt.title(‘Life Expectancy vs Population’) plt.xlabel(‘Population (log scale)’) plt.ylabel(‘Life Expectancy’) plt.legend(title=‘Year’) plt.show()"
+    "text": "This page contains analysis for the relationship between life expectancy and population over time.\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Load the dataset\ngapminder = pd.read_csv(\"gapminder.csv\")\n\n# Plot the relationship between life expectancy and population over time\nplt.figure(figsize=(10, 6))\nsns.scatterplot(data=gapminder, x='population_millions', y='life_expectancy', hue='year', palette='viridis', legend='full')\nplt.xscale('log')\nplt.title('Life Expectancy vs Population')\nplt.xlabel('Population (log scale)')\nplt.ylabel('Life Expectancy')\nplt.legend(title='Year')\nplt.show()"
   },
   {
     "objectID": "index.html",
