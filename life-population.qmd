@@ -1,0 +1,25 @@
+---
+title: "Life Expectancy and Population"
+---
+This page contains analysis for the relationship between life expectancy and population over time.
+
+```{python}
+#| echo: true
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+gapminder = pd.read_csv("gapminder.csv")
+
+# Plot the relationship between life expectancy and population over time
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=gapminder, x='population_millions', y='life_expectancy', hue='year', palette='viridis', legend='full')
+plt.xscale('log')
+plt.title('Life Expectancy vs Population')
+plt.xlabel('Population (log scale)')
+plt.ylabel('Life Expectancy')
+plt.legend(title='Year')
+plt.show()
+

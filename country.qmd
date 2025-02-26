@@ -1,0 +1,45 @@
+---
+title: "Country Analysis"
+---
+This page contains analysis for the changes in life expectancy, GDP per capita, and population for a specific country over time.
+
+```{python}
+#| echo: true
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+gapminder = pd.read_csv("gapminder.csv")
+
+# Specify the country for analysis
+country = 'United States'  # You can change this to any country in the dataset
+country_data = gapminder[gapminder['country'] == country]
+
+# Plot the changes in life expectancy, GDP per capita, and population over time
+fig, ax1 = plt.subplots(figsize=(12, 8))
+
+ax2 = ax1.twinx()
+ax3 = ax1.twinx()
+
+ax3.spines['right'].set_position(('outward', 60))
+
+sns.lineplot(data=country_data, x='year', y='life_expectancy', ax=ax1, color='b', marker='o', label='Life Expectancy')
+sns.lineplot(data=country_data, x='year', y='gdp_per_capita', ax=ax2, color='g', marker='o', label='GDP per Capita')
+sns.lineplot(data=country_data, x='year', y='population_millions', ax=ax3, color='r', marker='o', label='Population')
+
+ax1.set_xlabel('Year')
+ax1.set_ylabel('Life Expectancy', color='b')
+ax2.set_ylabel('GDP per Capita', color='g')
+ax3.set_ylabel('Population', color='r')
+
+ax1.tick_params(axis='y', colors='b')
+ax2.tick_params(axis='y', colors='g')
+ax3.tick_params(axis='y', colors='r')
+
+fig.suptitle(f'Changes in Life Expectancy, GDP per Capita, and Population in {country} Over Time')
+fig.legend(loc='upper left', bbox_to_anchor=(0.1,0.9))
+
+plt.show()
+```
