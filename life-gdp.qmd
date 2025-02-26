@@ -25,3 +25,4 @@ plt.xlabel('GDP per Capita (log scale)')
 plt.ylabel('Life Expectancy')
 plt.legend(title='Year')
 plt.show()
+```
